@@ -1,9 +1,9 @@
-package src.tourismApp.classes;
+package tourismApp.classes;
 
-public class cost {
+public class Cost {
     private  int cost;
 
-    public cost(int num){
+    public Cost(int num){
         this.cost=num;
     }
 

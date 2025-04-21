@@ -1,23 +1,27 @@
-package src.tourismApp.classes;
+package tourismApp.classes;
 
-import tourismApp.classes.cost.cost;
-
-
-
-public class accomodation {
+public class Accomodation {
     private String name;
-    private cost cost1;
-    
-    public accomodation(String name,cost cost1) {
+    private Cost cost1 = new Cost(0);
+    private int customers;
+
+    public Accomodation(String name,int num,int customers) {
         this.name=name;
-        this.cost1=cost1;
+        this.cost1.setCost(num);
+        this.customers=0;
     }
 
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
 
-    public cost getCost1() {return cost1;}
-    public void setCost1(cost cost1) {this.cost1 = cost1;}
+    public int getCost1() {return cost1.getCost();}
+    public void setCost1(int num) {this.cost1.setCost(num);}
     
-    
+    public void numOfCustomers(int action){//gia tin lista me ta accomodations
+        if (action==1){
+            customers++;
+        }else if (action==2 && customers>0){
+            customers--;
+        }
+    }
 }

@@ -1,20 +1,21 @@
-package src.tourismApp.classes;
+package tourismApp.classes;
 
-public class date {
+public class CustomDate {
     private int day;
     private int month;
     private int year;
     
+    public CustomDate(){this.day=1; this.month=1 ; this.year=2000;};
     
-    public date(int day,int month,int year){
+    public CustomDate(int day,int month,int year){
         this.day=day;
         this.month=month;
         this.year=year;
     }
 
     @Override
-    public String toString(){
-        return String.format("Day: %d, Month: %d, Year: %d", day,month,year);
+    public String toString() {
+        return String.format("Date: %02d/%02d/%04d", day, month, year);
     }
 
     public int getDay() {return day;}
