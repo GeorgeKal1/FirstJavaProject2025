@@ -25,7 +25,7 @@ public class Reservation {
     public int getRating() { return rating; }
     public void setRating(int rating) { this.rating = rating; }
 
-    public Cost getCost1() { return cost1; }
+    public int getCost1() { return cost1.getCost(); }
     public void setCost1(int num) { this.cost1.setCost(num); }
 
     

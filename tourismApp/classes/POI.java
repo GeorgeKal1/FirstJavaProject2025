@@ -1,21 +1,21 @@
 package tourismApp.classes;
 
-import java.util.LinkedList;
-
 public class POI extends Reservation{
-    private LinkedList<String> comments;
+    private String description;
 
 
-    public POI(String Title, int code, int Rating, int num) {
+    public POI(String Title, int code, int Rating, int num,String description) {
         super(Title, code, Rating, num);
+        this.description=description;
     }
 
-    public void addComment(String comment){
-        comments.addLast(comment);
-    }
+    public String getDescription(){return description;}
+    public void setDescription(String description) {this.description = description;}
 
-    public LinkedList<String> showComments(){
-        return comments;
-    };
+    @Override
+    public String toString() {
+        return String.format("POI {title='%s', code=%d, rating=%d, num=%d, location='%s'\n}", 
+                      getTitle(), getCode(), getRating(), getCost1(), description);
+    }
     
 }

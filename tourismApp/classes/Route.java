@@ -11,4 +11,10 @@ public class Route extends Reservation {
 
     public float getDuration() { return duration; }
     public void setDuration(float duration) { this.duration = duration; }
+
+    @Override
+    public String toString() {
+        return String.format("Route{title='%s', code=%d, rating=%d, num=%d, duration=%.2f}\n", 
+            getTitle(), getCode(), getRating(), getCost1(), duration);
+    }
 }

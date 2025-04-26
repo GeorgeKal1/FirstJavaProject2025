@@ -25,8 +25,9 @@ public class Main {
 
     public static int menu() {
         int answ;
-        String message = "Choose what you want to do:\n" +
-                         "1. View all: Accommodations / Reservations\n" +
+        String message = "-------------------------------------------------\n"+
+                         "Choose what you want to do:\n" +
+                         "1. View all: Clients / Accommodations / Reservations\n" +
                          "2. Add new Record: Client / Accommodation / Reservation\n" +
                          "3. Search Client by Name\n" +
                          "4. Delete all Records: Client,Accommodation,Reservation\n" +
@@ -49,7 +50,7 @@ public class Main {
                     case 1:
                         System.out.println(listOfClients + "\n");
                         break;
-                    case 2:
+                    case 2: 
                         System.out.println(listOfAccomodations + "\n");
                         break;
                     case 3:
@@ -108,7 +109,74 @@ public class Main {
 
                     case 3:
                         
-                        System.out.println("Adding a new Reservation is not yet implemented.");
+                        
+                        System.out.println("What type of Reservation do you want to add? 1. Route 2. POI 3. Destination (1/2/3): ");
+                        int reservationType = Scan.nextInt();
+
+                        switch (reservationType) {
+                            case 1:
+                                System.out.println("Give Route Title: ");
+                                String routeTitle = Scan.next();
+                                System.out.println("Give Route Code: ");
+                                int routeCode = Scan.nextInt();
+                                System.out.println("Give Route Rating: ");
+                                int routeRating = Scan.nextInt();
+                                System.out.println("Give Route Cost: ");
+                                int routeCost = Scan.nextInt();
+                                System.out.println("Give Route Duration: ");
+                                float routeDuration = Scan.nextFloat();
+
+                                Route newRoute = new Route(routeTitle, routeCode, routeRating, routeCost, routeDuration);
+                                listOfReservations.add(newRoute);
+                                System.out.println("Route added successfully!");
+                                break;
+
+                            case 2:
+                                System.out.println("Give POI Title: ");
+                                String poiTitle = Scan.next();
+                                System.out.println("Give POI Code: ");
+                                int poiCode = Scan.nextInt();
+                                Scan.nextLine(); 
+                                System.out.println("Give POI Rating: ");
+                                int poiRating = Scan.nextInt();
+                                Scan.nextLine(); 
+                                System.out.println("Give POI Cost: ");
+                                int poiCost = Scan.nextInt();
+                                Scan.nextLine(); 
+                                System.out.println("Give POI Description: ");
+                                String poiDescription = Scan.nextLine();
+
+                                POI newPOI = new POI(poiTitle, poiCode, poiRating, poiCost, poiDescription);
+                                listOfReservations.add(newPOI);
+                                System.out.println("POI added successfully!");
+                                break;
+
+                            case 3:
+                            
+                                System.out.println("Give Destination Title: ");
+                                String destinationTitle = Scan.next();
+                                System.out.println("Give Destination Code: ");
+                                int destinationCode = Scan.nextInt();
+                                Scan.nextLine(); 
+                                System.out.println("Give Destination Rating: ");
+                                int destinationRating = Scan.nextInt();
+                                Scan.nextLine(); 
+                                System.out.println("Give Destination Cost: ");
+                                int destinationCost = Scan.nextInt();
+                                Scan.nextLine(); 
+                                System.out.println("Give Destination Location: ");
+                                String destinationLocation = Scan.nextLine();
+                                
+                                Destination newDestination = new Destination(destinationTitle, destinationCode, destinationRating, destinationCost, destinationLocation );
+                                listOfReservations.add(newDestination);
+                                System.out.println("Destination added successfully!");
+                                
+                                break;
+
+                            default:
+                                System.out.println("Invalid choice. Please try again.");
+                                break;
+                        }
                         break;
 
                     default:
