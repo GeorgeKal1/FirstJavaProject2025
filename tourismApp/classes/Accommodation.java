@@ -1,11 +1,11 @@
 package tourismApp.classes;
 
-public class Accomodation {
+public class Accommodation {
     private String name;
     private Cost cost1 = new Cost(0);
     private int customers;
 
-    public Accomodation(String name,int num,int customers) {
+    public Accommodation(String name,int num,int customers) {
         this.name=name;
         this.cost1.setCost(num);
         this.customers=0;
@@ -24,4 +24,10 @@ public class Accomodation {
             customers--;
         }
     }
+
+    @Override
+public String toString() {
+    return String.format(" Accommodation Nsame: %s, Cost: %d, Max Customers: %d\n", name, cost1.getCost(), customers);
+}
+
 }

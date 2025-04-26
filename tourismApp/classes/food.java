@@ -3,9 +3,9 @@ package tourismApp.classes;
 public class Food {
     private String name;
     private Cost cost1 = new Cost(0);
+    
 
-
-    public Food(String name,int num){
+    public Food(String name, int num){
         this.name=name;
         this.cost1.setCost(num);
     }
