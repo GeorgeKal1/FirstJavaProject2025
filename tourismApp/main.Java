@@ -10,8 +10,26 @@ public class Main {
     static LinkedList<Client> listOfClients = new LinkedList<>();
     static LinkedList<Reservation> listOfReservations = new LinkedList<>();
     static LinkedList<Accommodation> listOfAccomodations = new LinkedList<>();
+    static LinkedList<Food> listOfFoods = new LinkedList<>();
+    
+    static{
+        listOfFoods.add(new Food("Burger", 5));
+        listOfFoods.add(new Food("Pasta", 8));
+        listOfFoods.add(new Food("Pizza", 10));
+        listOfFoods.add(new Food("steak", 15));
+        listOfFoods.add(new Food("salmon", 20));
+        listOfFoods.add(new Food("soup", 12));
+
+    }
+    
+    
 
     public static void main(String[] args) {
+
+        
+
+
+
         int choice;
         do {
             choice = menu();
@@ -19,15 +37,12 @@ public class Main {
         } while (choice != 6);
     }
 
-    public static void addNewRecord(LinkedList<?> list1) {
-        // Add logic to add a new record
-    }
-
+   
     public static int menu() {
         int answ;
         String message = "-------------------------------------------------\n"+
                          "Choose what you want to do:\n" +
-                         "1. View all: Clients / Accommodations / Reservations\n" +
+                         "1. View all: Clients / Accommodations / Reservations / Food\n" +
                          "2. Add new Record: Client / Accommodation / Reservation\n" +
                          "3. Search Client by Name\n" +
                          "4. Delete all Records: Client,Accommodation,Reservation\n" +
@@ -72,8 +87,11 @@ public class Main {
                         String name = Scan.next();
                         System.out.println("Give Client's email: ");
                         String email = Scan.next();
-                        System.out.println("Give Client's preferred food: ");
-                        String food1 = Scan.next();
+                        System.out.println("Available food options: " + listOfFoods);
+                        
+                        displayFoodOptions();
+                        String food1 = getValidFoodChoice();
+
                         System.out.println("Give Client's accommodation: ");
                         String accommodation = Scan.next();
                         System.out.println("Give Reservation Name: ");
@@ -119,7 +137,7 @@ public class Main {
                                 String routeTitle = Scan.next();
                                 System.out.println("Give Route Code: ");
                                 int routeCode = Scan.nextInt();
-                                System.out.println("Give Route Rating: ");
+                                System.out.println("Give Route Rating(0-5): ");
                                 int routeRating = Scan.nextInt();
                                 System.out.println("Give Route Cost: ");
                                 int routeCost = Scan.nextInt();
@@ -137,7 +155,7 @@ public class Main {
                                 System.out.println("Give POI Code: ");
                                 int poiCode = Scan.nextInt();
                                 Scan.nextLine(); 
-                                System.out.println("Give POI Rating: ");
+                                System.out.println("Give POI Rating (0-5): ");
                                 int poiRating = Scan.nextInt();
                                 Scan.nextLine(); 
                                 System.out.println("Give POI Cost: ");
@@ -158,7 +176,7 @@ public class Main {
                                 System.out.println("Give Destination Code: ");
                                 int destinationCode = Scan.nextInt();
                                 Scan.nextLine(); 
-                                System.out.println("Give Destination Rating: ");
+                                System.out.println("Give Destination Rating(0-5): ");
                                 int destinationRating = Scan.nextInt();
                                 Scan.nextLine(); 
                                 System.out.println("Give Destination Cost: ");
@@ -206,4 +224,32 @@ public class Main {
                 break;
         }
     }
+
+    public static void displayFoodOptions() {
+        System.out.println("Available Food Options:");
+        int index = 1;
+        for (Food food : listOfFoods) {
+            System.out.println(index++ + ". " + food.getName() + " - $" + food.getCost1());
+        }
+    }
+    
+
+    public static String getValidFoodChoice() {
+        do {
+            System.out.println("Enter your preferred food from the list:");
+            String input = Scan.next(); 
+            
+            boolean valid = listOfFoods.stream()
+                .anyMatch(food -> food.getName().equalsIgnoreCase(input));
+            
+            if (valid) {
+                return input;
+            } else {
+                System.out.println("Invalid choice. Please select a food from the displayed options.");
+            }
+        } while (true);
+    }
+    
+    
+
 }

@@ -16,4 +16,8 @@ public class Food {
     public int getCost1() {return cost1.getCost();}
     public void setCost1(Cost cost1) {this.cost1 = cost1;}
     
+    @Override
+    public String toString() {
+        return String.format("Food{name='%s', cost=%d}", name, cost1.getCost());
+    }
 }
