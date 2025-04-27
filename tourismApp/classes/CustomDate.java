@@ -1,6 +1,7 @@
 package tourismApp.classes;
+import java.io.Serializable;
 
-public class CustomDate {
+public class CustomDate implements Serializable{
     private int day;
     private int month;
     private int year;

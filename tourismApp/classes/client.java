@@ -1,6 +1,8 @@
 package tourismApp.classes;
 
-public class Client {
+import java.io.Serializable;
+
+public class Client implements Serializable{
     private String name;
     private String email;
     private String food1;
@@ -18,6 +20,13 @@ public class Client {
         this.date.setMonth(month);
         this.date.setYear(year);
     }
+
+    public String getName() {return name;}
+    public String getEmail() {return email;}
+    public String getFood1() {return food1;}
+    public String getAccomodation() {return accomodation;}
+    public String getReservationName() {return ReservationName;}
+    public CustomDate getDate() {return date;}
 
     @Override
     public String toString() {

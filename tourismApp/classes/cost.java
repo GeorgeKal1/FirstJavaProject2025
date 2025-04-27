@@ -1,6 +1,8 @@
 package tourismApp.classes;
 
-public class Cost {
+import java.io.Serializable;
+
+public class Cost implements Serializable{
     private  int cost;
 
     public Cost(int num){

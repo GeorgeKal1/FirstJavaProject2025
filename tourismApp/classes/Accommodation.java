@@ -1,6 +1,8 @@
 package tourismApp.classes;
 
-public class Accommodation {
+import java.io.Serializable;
+
+public class Accommodation implements Serializable{
     private String name;
     private Cost cost1 = new Cost(0);
     private int customers;
@@ -17,17 +19,12 @@ public class Accommodation {
     public int getCost1() {return cost1.getCost();}
     public void setCost1(int num) {this.cost1.setCost(num);}
     
-    public void numOfCustomers(int action){//gia tin lista me ta accomodations
-        if (action==1){
-            customers++;
-        }else if (action==2 && customers>0){
-            customers--;
-        }
-    }
+    public int getMaxCustomers() {return customers;}
+    public void setCustomers(int customers) {this.customers = customers;}
 
     @Override
 public String toString() {
-    return String.format(" Accommodation Nsame: %s, Cost: %d, Max Customers: %d\n", name, cost1.getCost(), customers);
+    return String.format(" Accommodation Name: %s, Cost: %d, Max Customers: %d\n", name, cost1.getCost(), customers);
 }
 
 }

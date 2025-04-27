@@ -14,7 +14,7 @@ public class POI extends Reservation{
 
     @Override
     public String toString() {
-        return String.format("POI {title='%s', code=%d, rating=%d, num=%d, location='%s'\n}", 
+        return String.format("POI {title='%s', code=%d, rating=%d, num=%d, description='%s'\n}", 
                       getTitle(), getCode(), getRating(), getCost1(), description);
     }
     
