@@ -27,17 +27,17 @@ public class Main {
 
     public static void main(String[] args) {
         loadData();
-        int choice;
+        String choice;
         do {
             choice = menu();
             Action(choice);
-        } while (choice != 6);
+        } while (!choice.equals("6"));
     }
 
    
 
-    public static int menu() {
-        int answ;
+    public static String menu() {
+        String answ;
         String message = "-------------------------------------------------\n"+
                          "Choose what you want to do:\n" +
                          "1. View all: Clients / Accommodations / Reservations / Food\n" +
@@ -48,31 +48,31 @@ public class Main {
                          "6. Save and exit\n" +
                          "-------------------------------------------------";
         System.out.println(message);
-        answ = Scan.nextInt();
+        answ = Scan.next();
         return answ;
     }
 
 
 
 
-    public static void Action(int answ) {
-        int answ2;
+    public static void Action(String answ) {
+        String answ2;
     
         switch (answ) {
-            case 1:
+            case "1":
                 System.out.println("What do you want to view? 1. Clients 2. Accommodations 3. Reservations 4. Food (1/2/3/4): ");
-                answ2 = Scan.nextInt();
+                answ2 = Scan.next();
                 switch (answ2) {
-                    case 1:
+                    case "1":
                         System.out.println(listOfClients + "\n");
                         break;
-                    case 2: 
+                    case "2": 
                         System.out.println(listOfAccomodations + "\n");
                         break;
-                    case 3:
+                    case "3":
                         System.out.println(listOfReservations + "\n");
                         break;
-                    case 4:
+                    case "4":
                         System.out.println(listOfFoods + "\n");
                         break;
                     default:
@@ -80,11 +80,11 @@ public class Main {
                         break;
                 }
                 break;
-            case 2:
+            case "2":
                 System.out.println("What record do you want to add? 1. Client 2. Accommodation 3. Reservation (1/2/3): ");
-                answ2 = Scan.nextInt();
+                answ2 = Scan.next();
                 switch (answ2) {
-                    case 1:
+                    case "1":
                         // Add Client
                         if (listOfAccomodations.isEmpty() || listOfReservations.isEmpty()) {
                             System.out.println("No Accommodations or Reservations Available");
@@ -121,7 +121,7 @@ public class Main {
                         System.out.println("Client added successfully!");
                         break;
     
-                    case 2:
+                    case "2":
                         // Add Accommodation
                         System.out.println("Give Accommodation's name: ");
                         String accommodationNameForNewAccommodation = Scan.next();  
@@ -135,13 +135,13 @@ public class Main {
                         System.out.println("Accommodation added successfully!");
                         break;
     
-                    case 3:
+                    case "3":
                         // Add Reservation
                         System.out.println("What type of Reservation do you want to add? 1. Route 2. POI 3. Destination (1/2/3): ");
-                        int reservationType = Scan.nextInt();
+                        String reservationType = Scan.next();
     
                         switch (reservationType) {
-                            case 1:
+                            case "1":
                                 // Route Reservation
                                 System.out.println("Give Route Title: ");
                                 String routeTitle = Scan.next();
@@ -159,7 +159,7 @@ public class Main {
                                 System.out.println("Route added successfully!");
                                 break;
     
-                            case 2:
+                            case "2":
                                 // POI Reservation
                                 System.out.println("Give POI Title: ");
                                 String poiTitle = Scan.next();
@@ -180,7 +180,7 @@ public class Main {
                                 System.out.println("POI added successfully!");
                                 break;
     
-                            case 3:
+                            case "3":
                                 // Destination Reservation
                                 System.out.println("Give Destination Title: ");
                                 String destinationTitle = Scan.next();
@@ -213,7 +213,7 @@ public class Main {
                 }
                 break;
     
-            case 3:
+            case "3":
                 // Code to search for a client by name
                 System.out.println("Enter the name of the client to search:");
                 String searchName = Scan.next();
@@ -232,7 +232,7 @@ public class Main {
                 }
                 break;
     
-            case 4:
+            case "4":
                 // Code to delete all records (Client, Accommodation, or Reservation)
                 listOfClients.clear();
                 listOfAccomodations.clear();
@@ -240,7 +240,7 @@ public class Main {
                 System.out.println("All records have been deleted successfully!");
                 break;
     
-            case 5:
+            case "5":
                 // Code to view ratings
                 System.out.println("Ratings of Reservations:");
                 System.out.println("-------------------------------------------------");
@@ -255,7 +255,7 @@ public class Main {
                 System.out.println("-------------------------------------------------");
                 break;
     
-            case 6:
+            case "6":
                 
                 System.out.println("Saving and exiting...");
                 try {

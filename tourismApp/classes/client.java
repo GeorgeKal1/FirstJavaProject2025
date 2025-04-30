@@ -31,7 +31,7 @@ public class Client implements Serializable{
     @Override
     public String toString() {
         return String.format(
-            "Client{name='%s', email='%s', food1='%s', accomodation='%s', ReservationName='%s', date='%s'}",
+            "Client{name='%s', email='%s', food1='%s', accomodation='%s', ReservationName='%s', date='%s'}\n",
             name, email, food1, accomodation, ReservationName, date.toString()
         );
     }

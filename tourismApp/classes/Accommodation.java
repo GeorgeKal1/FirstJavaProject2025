@@ -10,7 +10,7 @@ public class Accommodation implements Serializable{
     public Accommodation(String name,int num,int customers) {
         this.name=name;
         this.cost1.setCost(num);
-        this.customers=0;
+        this.customers=customers;
     }
 
     public String getName() {return name;}
